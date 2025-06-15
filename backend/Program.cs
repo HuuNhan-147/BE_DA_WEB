@@ -59,6 +59,8 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<VNPayService>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
@@ -70,6 +72,7 @@ builder.Services.AddCors(options =>
                   .AllowCredentials();
         });
 });
+builder.Services.Configure<VNPaySettings>(builder.Configuration.GetSection("VNPay"));
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

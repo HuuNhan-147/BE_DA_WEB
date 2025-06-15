@@ -15,6 +15,7 @@ namespace BE_DA_WEB.Models
         public bool IsPaid { get; set; } = false;
         public DateTime? PaidAt { get; set; }
         public string PaymentStatus { get; set; } = "pending";
+        public string? PaymentResult { get; set; }  // để map JSON nếu cần
         public string? VnPayTransactionId { get; set; }
         public bool IsDelivered { get; set; } = false;
         public DateTime? DeliveredAt { get; set; }
